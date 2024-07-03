@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: northwind
+    description: Northwind Shop
+    tables:
+      - name: orders
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+
+      - name: products
+        description: Esta tabela contem informacao sobre os produtos da empresa.
+
+      - name: shippers
+        description: Esta tabela contem informacao sobre os entregadores da empresa.
+
+      - name: employees
+        description: Esta tabela contem informacao sobre os funcionarios da empresa.
+
+      - name: customers
+        description: Esta tabela contem informacao sobre os clientes da empresa.
+
+      - name: suppliers
+        description: Esta tabela contem informacao sobre os fornecedores da empresa.

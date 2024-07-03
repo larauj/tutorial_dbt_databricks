@@ -1,0 +1,15 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer  # Make sure files end in a newline and only a newline
+    -   id: trailing-whitespace
+    -   id: check-merge-conflict  # Check for files that contain merge conflict strings
+    -   id: debug-statements
+    -   id: check-added-large-files
+
+-   repo: https://github.com/sqlfluff/sqlfluff
+    rev: 2.3.5
+    hooks:
+    -   id: sqlfluff-lint
