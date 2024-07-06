@@ -1,8 +1,7 @@
-with source as (
+with selected as (
     select
         /* primary key */
         product_id,
-
         /* foreign keys */
         category_id,
         supplier_id,
@@ -13,11 +12,15 @@ with source as (
         units_on_order,
         quantity_per_unit,
         reorder_level,
-        case
-            when discontinued = 0 then 'false'
-            else 'true'
-        end as is_discontinued
-    from {{ source('northwind', 'products') }}
+        is_discontinued
+    from {{ ref('stg_products') }}
+),
+
+transformed as (
+    select
+        *,
+        row_number() over (order by product_id) as product_sk
+    from selected
 )
 
-select * from source
+select * from transformed

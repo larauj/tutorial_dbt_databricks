@@ -25,3 +25,6 @@ sources:
 
       - name: suppliers
         description: Esta tabela contem informacao sobre os fornecedores da empresa.
+
+      - name: order_details
+        description: Esta tabela contem informacao sobre os detalhes dos pedidos.
