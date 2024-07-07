@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_suppliers
+    columns:
+      - name: shipper_sk
+        description: The primary key of the supplier table
+        tests:
+          - not_null
+          - unique

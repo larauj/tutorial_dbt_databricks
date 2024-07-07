@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fact_orders_details
+    columns:
+      - name: order_id
+        description: The order natural key
+        tests:
+          - not_null
+
+      - name: customer_fk
+        description: The customer foreign key
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_sk
+
+      - name: shipper_fk
+        description: The shipper foreign key
+        tests:
+          - relationships:
+              to: ref('dim_shippers')
+              field: shipper_sk
+
+      - name: product_fk
+        description: The product foreign key
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_sk

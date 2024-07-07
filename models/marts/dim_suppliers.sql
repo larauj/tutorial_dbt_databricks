@@ -20,7 +20,7 @@ with selected as (
 transformed as (
     select
         *,
-        row_number() over (order by supplier_id) as supplier_sk
+        row_number() over (order by supplier_id) as c
     from selected
 )
 
