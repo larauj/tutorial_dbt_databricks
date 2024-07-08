@@ -19,6 +19,8 @@ transformed as (
     select
         *,
         row_number() over (order by customer_id) as customer_sk
+        -- best pratice: we can create a surrogate key via
+        -- db_utils function generate_surrogate_key
     from selected
 )
 

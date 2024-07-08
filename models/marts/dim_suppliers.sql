@@ -10,7 +10,7 @@ divisions as (
 
 transformed as (
     select
-        row_number() over (order by supplier_id) as supplier_sk,
+        row_number() over (order by suppliers.supplier_id) as supplier_sk,
         /* primary key */
         suppliers.supplier_id,
         suppliers.company_name,

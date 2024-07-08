@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: agg_orders
+    description: "This aggregated table summarizes orders by date and product_fk, providing the total amount for each combination."
+    columns:
+      - name: order_date
+        description: "The date when the orders were placed."
+
+      - name: product_fk
+        description: "The product id of the orders."
+
+      - name: total_amount
+        description: "The total amount for orders grouped by order_date, and product_fk."
+
+unit_tests:
+  - name: test_amount_sum
+    model: agg_orders
+    given:
+      - input: ref('fact_orders_details')
+        format: csv
+        rows: |
+          order_date,status,amount
+          '1998-04-17',59,5500
+          '1998-04-17',59,1650
+          '1998-04-09',71,430
+          '1998-04-09',71,1290
+    expect:
+      format: csv
+      rows: |
+          order_date,status,total_amount
+          '1998-04-17',59,7150
+          '1998-04-09',71,2590

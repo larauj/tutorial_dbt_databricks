@@ -72,6 +72,8 @@ final as (
         order_detail_with_sk.product_fk,
         order_detail_with_sk.unit_price,
         order_detail_with_sk.quantity,
+        order_detail_with_sk.unit_price
+        * order_detail_with_sk.quantity as amount,
         order_detail_with_sk.discount
     from orders_with_sk
     left join order_detail_with_sk
